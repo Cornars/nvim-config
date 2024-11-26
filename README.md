@@ -1,1 +1,1 @@
-This is my nvim config files :D
+These are my nvim config files :D
