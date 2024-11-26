@@ -1,4 +1,3 @@
-local telescope_builtin = require('telescope.builtin')
 
 -- set new tab to Ctrl T
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<cr>')
@@ -21,6 +20,7 @@ vim.keymap.set('n', '<leader>gd', ':Gvdiff<CR>', {})
 vim.keymap.set('n', '<leader>gg', ':Git<CR>', {})
 
 -------- Telescope Settings -------- 
+local telescope_builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
@@ -35,5 +35,4 @@ vim.keymap.set('n', '<leader>ft', '<cmd>Telescope telescope-tabs list_tabs<cr>',
 vim.keymap.set('n', '<leader>ws', '<cmd>WinShift<cr>', { desc = 'WinShift mode activate!' })
 
 -- TODO: find a way to transfer keymap commands for LSP server thingies here. 
-
 
