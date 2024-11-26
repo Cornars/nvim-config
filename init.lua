@@ -1,9 +1,4 @@
-require('keybinds')
 
-
--- setting <Space> as leader
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- nerd font is set
 vim.g.have_nerd_font = true
@@ -382,3 +377,4 @@ require("telescope").load_extension("flutter")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 lsp.setup()
+require('keybinds')

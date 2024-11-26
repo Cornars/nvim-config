@@ -1,4 +1,9 @@
 local telescope_builtin = require('telescope.builtin')
+
+-------- Set <Space> as leader -------- 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- set new tab to Ctrl T
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<cr>')
 
@@ -12,26 +17,27 @@ vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
 -- Show Diagnostic
 vim.keymap.set('n', '<leader>ds', '<cmd>lua vim.diagnostic.open_float()<cr>', {})
 
-
 -- Change semicolon to colon
 vim.keymap.set('n', ';', ':', {})
--- Git shortcuts
+
+-------- Git Shortcuts -------- 
 vim.keymap.set('n', '<leader>gd', ':Gvdiff<CR>', {})
 vim.keymap.set('n', '<leader>gg', ':Git<CR>', {})
 
+-------- Telescope Settings -------- 
 vim.keymap.set('n', '<leader>ff', telescope_builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', telescope_builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', telescope_builtin.help_tags, { desc = 'Telescope help tags' })
 
--- Telescope with Flutter
 -- TODO: only allow this for flutter apps
+-------- Telescope with Flutter -------- 
 vim.keymap.set('n', '<leader>fr', '<cmd>Telescope flutter commands<cr>', { desc = 'Telescope flutter commands' })
 vim.keymap.set('n', '<leader>ft', '<cmd>Telescope telescope-tabs list_tabs<cr>', { desc = 'Telescope tabs' })
 
--- Enter winshift mode
+-------- Enter WinShift Mode -------- 
 vim.keymap.set('n', '<leader>ws', '<cmd>WinShift<cr>', { desc = 'WinShift mode activate!' })
 
-
+-- TODO: find a way to transfer keymap commands for LSP server thingies here. 
 
 
