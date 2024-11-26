@@ -19,19 +19,8 @@ return {
   {'vim-airline/vim-airline'},
   {'vim-airline/vim-airline-themes'},
   {'sindrets/winshift.nvim'},
-  
   -- Telescope Tabs
-  {
-  	'LukasPietzschmann/telescope-tabs',
-  	config = function()
-  		require('telescope').load_extension 'telescope-tabs'
-  		require('telescope-tabs').setup {
-  			-- Your custom config :^)
-  		}
-  	end,
-  	dependencies = { 'nvim-telescope/telescope.nvim' },
-  },
-  -- LSP Zero, for Language Server Protocol support
+    -- LSP Zero, for Language Server Protocol support
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v2.x',
