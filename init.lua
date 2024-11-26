@@ -387,6 +387,15 @@ require('lspconfig').ocamllsp.setup({})
 -- Manually configured by flutter-tools
 -- require('lspconfig').dartls.setup({
 -- })
+require('lspconfig').lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
+})
 require('lspconfig').clangd.setup({})
 require("flutter-tools").setup {} -- use defaults
 require("telescope").load_extension("flutter")
