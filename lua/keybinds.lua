@@ -1,9 +1,5 @@
 local telescope_builtin = require('telescope.builtin')
 
--------- Set <Space> as leader -------- 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- set new tab to Ctrl T
 vim.keymap.set('n', '<C-t>', '<cmd>tabnew<cr>')
 
