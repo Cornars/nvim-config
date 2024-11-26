@@ -1,10 +1,10 @@
+require('keybinds')
+
+
 -- setting <Space> as leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- set new tab to Ctrl T
---
-vim.keymap.set('n', '<C-t>', '<cmd>tabnew<cr>')
 -- nerd font is set
 vim.g.have_nerd_font = true
 
@@ -51,28 +51,10 @@ vim.g.loaded_netrwPlugin = 1
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
-
--- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
-    noremap = true
-})
-
--- Show Diagnostic
-vim.keymap.set('n', '<leader>ds', '<cmd>lua vim.diagnostic.open_float()<cr>', {})
-
+-- Don't show diagnostics inline, only when you view it on the floating itself
 vim.diagnostic.config({
   virtual_text = false,
 })
-
--- Change semicolon to colon
-vim.keymap.set('n', ';', ':', {})
--- Git shortcuts
-vim.keymap.set('n', '<leader>gd', ':Gvdiff<CR>', {})
-vim.keymap.set('n', '<leader>gg', ':Git<CR>', {})
-
-
 
 -- Installing lazy.nvim plugin manager. 
 -- Important for plugins lol
@@ -373,9 +355,6 @@ require("winshift").setup({
     })
   end,
 })
--- Enter winshift mode
-vim.keymap.set('n', '<leader>ws', '<cmd>WinShift<cr>', { desc = 'WinShift mode activate!' })
-
 
 require('gitsigns').setup()
 -- You'll find a list of language servers here:
@@ -387,6 +366,7 @@ require('lspconfig').ocamllsp.setup({})
 -- Manually configured by flutter-tools
 -- require('lspconfig').dartls.setup({
 -- })
+--
 require('lspconfig').lua_ls.setup({
   settings = {
     Lua = {
@@ -399,14 +379,6 @@ require('lspconfig').lua_ls.setup({
 require('lspconfig').clangd.setup({})
 require("flutter-tools").setup {} -- use defaults
 require("telescope").load_extension("flutter")
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-vim.keymap.set('n', '<leader>fr', '<cmd>Telescope flutter commands<cr>', { desc = 'Telescope flutter commands' })
-vim.keymap.set('n', '<leader>ft', '<cmd>Telescope telescope-tabs list_tabs<cr>', { desc = 'Telescope tabs' })
 
 require("luasnip.loaders.from_vscode").lazy_load()
 lsp.setup()
