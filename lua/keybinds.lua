@@ -36,3 +36,8 @@ vim.keymap.set('n', '<leader>ws', '<cmd>WinShift<cr>', { desc = 'WinShift mode a
 
 -- TODO: find a way to transfer keymap commands for LSP server thingies here. 
 
+-- Resizing window
+vim.keymap.set('n', '<S-h>', '<cmd>vertical resize -3<cr>', {})
+vim.keymap.set('n', '<S-l>', '<cmd>vertical resize +3<cr>', {})
+vim.keymap.set('n', '<S-k>', '<cmd>resize -3<cr>', {})
+vim.keymap.set('n', '<S-j>', '<cmd>resize +3<cr>', {})
