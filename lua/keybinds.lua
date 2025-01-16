@@ -5,6 +5,9 @@ vim.keymap.set('n', '<C-t>', '<cmd>tabnew<cr>')
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Change how we ESC when inserting
+vim.keymap.set('i', 'kj', '<Esc>')
+
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {
     noremap = true
 })
@@ -41,3 +44,7 @@ vim.keymap.set('n', '<S-h>', '<cmd>vertical resize -3<cr>', {})
 vim.keymap.set('n', '<S-l>', '<cmd>vertical resize +3<cr>', {})
 vim.keymap.set('n', '<S-k>', '<cmd>resize -3<cr>', {})
 vim.keymap.set('n', '<S-j>', '<cmd>resize +3<cr>', {})
+
+-------- Loads current file in Node.js
+vim.keymap.set('n', '<leader>js', '<cmd>w !node<cr>', { desc = 'Run current file in Node' })
+

@@ -1,5 +1,3 @@
-
-
 -------- Set <Space> as leader -------- 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -231,6 +229,8 @@ require('gitsigns').setup()
 -- These are example language servers. 
 require('lspconfig').gleam.setup({})
 require('lspconfig').ocamllsp.setup({})
+require('lspconfig').volar.setup({})
+require('lspconfig').ts_ls.setup({})
 
 -- Manually configured by flutter-tools
 -- require('lspconfig').dartls.setup({
@@ -250,4 +250,47 @@ require("flutter-tools").setup {} -- use defaults
 require("telescope").load_extension("flutter")
 
 require("luasnip.loaders.from_vscode").lazy_load()
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'ts_ls',
+    'volar',
+  },
+  handlers = {
+    function(server_name)
+      require('lspconfig')[server_name].setup({})
+    end,
+    volar = function()
+      require('lspconfig').volar.setup({})
+    end,
+    ts_ls = function()
+      local vue_typescript_plugin = require('mason-registry')
+        .get_package('vue-language-server')
+        :get_install_path()
+        .. '/node_modules/@vue/language-server'
+        .. '/node_modules/@vue/typescript-plugin'
+
+      require('lspconfig').ts_ls.setup({
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = vue_typescript_plugin,
+              languages = {'javascript', 'typescript', 'vue'}
+            },
+          }
+        },
+        filetypes = {
+          'javascript',
+          'javascriptreact',
+          'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.tsx',
+          'vue',
+        },
+      })
+    end,
+  },
+})
 lsp.setup()
