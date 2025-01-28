@@ -60,8 +60,8 @@ vim.opt.cursorline = true
 
 -- Set general indentation settings
 vim.opt.expandtab = true  -- Use spaces instead of tabs
-vim.opt.shiftwidth = 2    -- Number of spaces to use for each step of (auto)indent
-vim.opt.tabstop = 2       -- Number of spaces that a <Tab> counts for
+vim.opt.shiftwidth = 4    -- Number of spaces to use for each step of (auto)indent
+vim.opt.tabstop = 4       -- Number of spaces that a <Tab> counts for
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
