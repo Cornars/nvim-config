@@ -48,3 +48,7 @@ vim.keymap.set('n', '<S-j>', '<cmd>resize +3<cr>', {})
 -------- Loads current file in Node.js
 vim.keymap.set('n', '<leader>js', '<cmd>w !node<cr>', { desc = 'Run current file in Node' })
 
+
+-------- Loads current file in Python3
+vim.keymap.set('n', '<leader>jp', '<cmd>w !python3<cr>', { desc = 'Run current file in Node' })
+
