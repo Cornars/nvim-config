@@ -83,10 +83,10 @@ require('catppuccin').setup({
 })
 
 -- Set colorscheme
-vim.cmd[[colorscheme catppuccin]]
+vim.cmd[[colorscheme gruvbox]]
 
 -- Ensure vim-airline uses the Catppuccin theme
-vim.cmd.AirlineTheme('catppuccin')
+vim.cmd.AirlineTheme('gruvbox')
 
 -- NOTE: to make any of this work you need a language server.
 --
@@ -299,7 +299,7 @@ require('mason-lspconfig').setup({
 lsp.setup()
 
 ------- nvim-ufo setups for folding. 
-vim.o.foldcolumn = '1' -- '0' is not bad
+-- vim.o.foldcolumn = '1' -- '0' is not bad
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
