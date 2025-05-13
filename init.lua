@@ -87,7 +87,7 @@ vim.cmd[[colorscheme gruvbox]]
 
 -- Ensure vim-airline uses the Catppuccin theme
 vim.cmd.AirlineTheme('gruvbox')
-
+vim.g.airline_statusline_ontop = 1
 -- NOTE: to make any of this work you need a language server.
 --
 -- If you don't know what that is, watch this 5 min video:
@@ -251,7 +251,7 @@ require('lspconfig').lua_ls.setup({
 require('lspconfig').clangd.setup({})
 require("flutter-tools").setup {} -- use defaults
 require("telescope").load_extension("flutter")
-
+require("rust-tools").setup({})
 require("luasnip.loaders.from_vscode").lazy_load()
 require('mason').setup({})
 require('mason-lspconfig').setup({
@@ -324,4 +324,14 @@ for _, ls in ipairs(language_servers) do
     })
 end
 require('ufo').setup()
+require("autoclose").setup()
+for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
+    local default_diagnostic_handler = vim.lsp.handlers[method]
+    vim.lsp.handlers[method] = function(err, result, context, config)
+        if err ~= nil and err.code == -32802 then
+            return
+        end
+        return default_diagnostic_handler(err, result, context, config)
+    end
+end
 
