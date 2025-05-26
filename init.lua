@@ -323,6 +323,11 @@ for _, ls in ipairs(language_servers) do
         -- you can add other fields for setting up lsp server in this table
     })
 end
+-- require'nvim-treesitter.configs'.setup {
+--     highlight = {
+--         enable = true,
+--     }
+-- }
 require('ufo').setup()
 require("autoclose").setup()
 for _, method in ipairs({ 'textDocument/diagnostic', 'workspace/diagnostic' }) do
@@ -366,14 +371,4 @@ require'lspconfig'.lua_ls.setup {
     Lua = {}
   }
 }
-require("neorg").setup({
-    load = {
-        ["core.defaults"] = {},
-        ["core.concealer"] = {
-            config = { -- We added a `config` table!
-                icon_preset = "varied", -- And we set our option here.
-            },
-        },
-    }
-})
 vim.wo.conceallevel = 2
