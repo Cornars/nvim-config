@@ -51,4 +51,3 @@ vim.keymap.set('n', '<leader>js', '<cmd>w !node<cr>', { desc = 'Run current file
 
 -------- Loads current file in Python3
 vim.keymap.set('n', '<leader>jp', '<cmd>w !python3<cr>', { desc = 'Run current file in Node' })
-

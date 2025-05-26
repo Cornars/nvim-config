@@ -15,6 +15,7 @@ return {
   {'wincent/terminus'},
   {'nvim-tree/nvim-tree.lua'},
   {'nvim-tree/nvim-web-devicons'},
+  {'nvim-treesitter/nvim-treesitter'}, -- this is for neorg
   {'catppuccin/nvim'},
   {'vim-airline/vim-airline'},
   {'vim-airline/vim-airline-themes'},
