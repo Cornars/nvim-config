@@ -72,7 +72,7 @@ vim.opt.termguicolors = true
 
 -- Don't show diagnostics inline, only when you view it on the floating itself
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
 })
 
 -- empty setup using defaults
